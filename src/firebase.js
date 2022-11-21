@@ -1,12 +1,12 @@
-import firebase from "firebase";
+import firebase from 'firebase';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBa7dGi6ulmjNBS3vSaj30we3NupIZqM5c",
-    authDomain: "code-labs-e5dc3.firebaseapp.com",
-    projectId: "code-labs-e5dc3",
-    storageBucket: "code-labs-e5dc3.appspot.com",
-    messagingSenderId: "239301692411",
-    appId: "1:239301692411:web:24569433042962adf3595e",
+  apiKey: 'AIzaSyBa7dGi6ulmjNBS3vSaj30we3NupIZqM5c',
+  authDomain: 'code-labs-e5dc3.firebaseapp.com',
+  projectId: 'code-labs-e5dc3',
+  storageBucket: 'code-labs-e5dc3.appspot.com',
+  messagingSenderId: '239301692411',
+  appId: '1:239301692411:web:24569433042962adf3595e',
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

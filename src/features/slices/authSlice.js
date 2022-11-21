@@ -2,18 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 import { auth, provider } from '../../firebase';
 
 export const authSlice = createSlice({
-    name: 'auth',
-    initialState: {
-        value: 0,
+  name: 'auth',
+  initialState: {
+    value: 0,
+  },
+  reducers: {
+    signIn: () => {
+      auth.signInWithPopup(provider);
     },
-    reducers: {
-        signIn: () => {
-            auth.signInWithPopup(provider);
-        },
-        signOut: () => {
-            auth.signOut();
-        },
+    signOut: () => {
+      auth.signOut();
     },
+  },
 });
 
 export const { signIn, signOut } = authSlice.actions;

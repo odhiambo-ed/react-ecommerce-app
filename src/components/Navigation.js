@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { signOut } from "../features/slices/authSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { getData } from "../features/slices/cartSlice";
-import { getFavoritesData } from "../features/slices/favoritesSlice";
-import { getPurchasesData } from "../features/slices/purchasesSlice";
-import db, { auth } from "../firebase";
+import React, { useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector, useDispatch } from 'react-redux';
+import { signOut } from '../features/slices/authSlice';
+import { getData } from '../features/slices/cartSlice';
+import { getFavoritesData } from '../features/slices/favoritesSlice';
+import { getPurchasesData } from '../features/slices/purchasesSlice';
+import db, { auth } from '../firebase';
 
-import "../styles/Navigation.css";
+import '../styles/Navigation.css';
 
-import Cart from "../assets/cart.png";
+import Cart from '../assets/cart.png';
 
 function Navigation({ setCurrentTab }) {
   const data = useSelector((state) => state.cart.value);
@@ -20,44 +20,44 @@ function Navigation({ setCurrentTab }) {
   const purchases = useSelector((state) => state.purchases.value);
   const dispatch = useDispatch();
   useEffect(() => {
-    db.collection("cartPlacement")
-      .where("user", "==", auth.currentUser.email)
+    db.collection('cartPlacement')
+      .where('user', '==', auth.currentUser.email)
       .onSnapshot((snapshot) => {
         dispatch(
           getData(
             snapshot.docs.map((doc) => ({
               id: doc.id,
               data: doc.data(),
-            }))
-          )
+            })),
+          ),
         );
       });
   }, []);
   useEffect(() => {
-    db.collection("favoritesPlacement")
-      .where("user", "==", auth.currentUser.email)
+    db.collection('favoritesPlacement')
+      .where('user', '==', auth.currentUser.email)
       .onSnapshot((snapshot) => {
         dispatch(
           getFavoritesData(
             snapshot.docs.map((doc) => ({
               id: doc.id,
               data: doc.data(),
-            }))
-          )
+            })),
+          ),
         );
       });
   }, []);
   useEffect(() => {
-    db.collection("purchased")
-      .where("user", "==", auth.currentUser.email)
+    db.collection('purchased')
+      .where('user', '==', auth.currentUser.email)
       .onSnapshot((snapshot) => {
         dispatch(
           getPurchasesData(
             snapshot.docs.map((doc) => ({
               id: doc.id,
               data: doc.data(),
-            }))
-          )
+            })),
+          ),
         );
       });
   }, []);
@@ -70,14 +70,14 @@ function Navigation({ setCurrentTab }) {
           <Nav className="me-auto">
             <Nav.Link
               onClick={() => {
-                setCurrentTab("Home");
+                setCurrentTab('Home');
               }}
             >
               Home
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                setCurrentTab("Purchases");
+                setCurrentTab('Purchases');
               }}
             >
               Purchases
@@ -85,7 +85,7 @@ function Navigation({ setCurrentTab }) {
             <p className="lengthIndicators">{purchases.length}</p>
             <Nav.Link
               onClick={() => {
-                setCurrentTab("Favorites");
+                setCurrentTab('Favorites');
               }}
             >
               Favorites
@@ -93,7 +93,7 @@ function Navigation({ setCurrentTab }) {
             <p className="lengthIndicators">{favorites.length}</p>
             <Nav.Link
               onClick={() => {
-                setCurrentTab("Cart");
+                setCurrentTab('Cart');
               }}
             >
               <img src={Cart} alt="cart" className="cartLogo" />

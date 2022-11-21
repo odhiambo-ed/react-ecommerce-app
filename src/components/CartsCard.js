@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
-import "../styles/Cart.css";
+import React, { useState } from 'react';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import PropTypes from 'prop-types';
+import '../styles/Cart.css';
 
-import Delete from "../assets/delete.png";
+import { useDispatch } from 'react-redux';
+import Delete from '../assets/delete.png';
 
-import { useDispatch } from "react-redux";
-import { removeFromCart } from "../features/slices/cartSlice";
-import { updateCart } from "../features/slices/cartSlice";
+import { removeFromCart, updateCart } from '../features/slices/cartSlice';
 
-import Plus from "../assets/plus.png";
-import Minus from "../assets/minus.png";
+import Plus from '../assets/plus.png';
+import Minus from '../assets/minus.png';
 
 const CartsCard = ({
   id,
@@ -49,12 +49,12 @@ const CartsCard = ({
             if (quantity > 1) {
               dispatch(
                 updateCart({
-                  id: id,
+                  id,
                   data: {
                     quantity: quantity - 1,
                     cost: cost - price,
                   },
-                })
+                }),
               );
               setQuantity(quantity - 1);
               setCosts((quantity - 1) * price);
@@ -76,12 +76,12 @@ const CartsCard = ({
           onClick={() => {
             dispatch(
               updateCart({
-                id: id,
+                id,
                 data: {
                   quantity: quantity + 1,
                   cost: cost + price,
                 },
-              })
+              }),
             );
             setQuantity(quantity + 1);
             setCosts((quantity + 1) * price);
@@ -91,7 +91,10 @@ const CartsCard = ({
         />
       </div>
       <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-        <h6 className="mb-0">Ksh {costs}</h6>
+        <h6 className="mb-0">
+          Ksh
+          {costs}
+        </h6>
       </div>
       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
         <img
@@ -106,6 +109,17 @@ const CartsCard = ({
       <hr className="my-4" />
     </div>
   );
+};
+
+CartsCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  cost: PropTypes.number.isRequired,
+  summary: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  all: PropTypes.number.isRequired,
 };
 
 export default CartsCard;

@@ -6,10 +6,10 @@ import favoritesReducer from '../features/slices/favoritesSlice';
 import purchasesReducer from '../features/slices/purchasesSlice';
 
 export default configureStore({
-    reducer: {
-        auth: authReducer,
-        cart: cartReducer,
-        favorites: favoritesReducer,
-        purchases: purchasesReducer,
-    },
+  reducer: {
+    auth: authReducer,
+    cart: cartReducer,
+    favorites: favoritesReducer,
+    purchases: purchasesReducer,
+  },
 });

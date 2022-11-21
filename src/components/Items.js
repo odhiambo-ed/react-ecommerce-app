@@ -1,35 +1,34 @@
-import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import db, { auth } from "../firebase";
+import React, { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import db, { auth } from '../firebase';
 
-import Cards from "./Cards";
+import Cards from './Cards';
 
-import data from "../data/shopping";
+import data from '../data/shopping';
 
 function Items() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    db.collection("favoritesPlacement")
-      .where("user", "==", auth.currentUser.email)
+    db.collection('favoritesPlacement')
+      .where('user', '==', auth.currentUser.email)
       .onSnapshot((snapshot) => {
-        let sets = snapshot.docs.map((doc) => ({
+        const sets = snapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data().itemId,
         }));
-        let changed = sets.map((val) => val.data)
-        let mapped = data.map((val) => {
+        const changed = sets.map((val) => val.data);
+        const mapped = data.map((val) => {
           if (changed.includes(val.id)) {
-            val["inFavorites"] = true
-            return val
+            val.inFavorites = true;
+            return val;
           }
-          else {
-            val["inFavorites"] = false
-            return val
-          }
-        })
+
+          val.inFavorites = false;
+          return val;
+        });
         setItems(mapped);
       });
   }, []);
@@ -41,22 +40,20 @@ function Items() {
       }}
     >
       <Row>
-        {items.map((item) => {
-          return (
-            <Col sm key={item.id}>
-              <Cards
-                id={item.id}
-                name={item.name}
-                image={item.image}
-                price={item.price}
-                summary={item.summary}
-                description={item.description}
-                inFavorites={item.inFavorites}
-                quantity={item.quantity}
-              />
-            </Col>
-          );
-        })}
+        {items.map((item) => (
+          <Col sm key={item.id}>
+            <Cards
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              price={item.price}
+              summary={item.summary}
+              description={item.description}
+              inFavorites={item.inFavorites}
+              quantity={item.quantity}
+            />
+          </Col>
+        ))}
       </Row>
     </Container>
   );

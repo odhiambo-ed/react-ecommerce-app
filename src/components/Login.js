@@ -1,16 +1,16 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "../styles/Login.css";
-import { useDispatch } from "react-redux";
-import { signIn } from "../features/slices/authSlice";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import '../styles/Login.css';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../features/slices/authSlice';
 
-import LandingCart from "./LandingCart";
+import LandingCart from './LandingCart';
 
-import data from "../data/shopping";
+import data from '../data/shopping';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Login = () => {
           <Navbar.Brand>E-Commerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto"></Nav>
+            <Nav className="me-auto" />
             <Nav>
               <Button onClick={login} variant="success">
                 Log In
@@ -39,19 +39,17 @@ const Login = () => {
         }}
       >
         <Row>
-          {data.map((item) => {
-            return (
-              <Col sm key={item.id}>
-                <LandingCart
-                  name={item.name}
-                  image={item.image}
-                  price={item.price}
-                  summary={item.summary}
-                  description={item.description}
-                />
-              </Col>
-            );
-          })}
+          {data.map((item) => (
+            <Col sm key={item.id}>
+              <LandingCart
+                name={item.name}
+                image={item.image}
+                price={item.price}
+                summary={item.summary}
+                description={item.description}
+              />
+            </Col>
+          ))}
         </Row>
       </Container>
     </>
