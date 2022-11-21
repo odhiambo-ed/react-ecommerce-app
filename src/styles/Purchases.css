@@ -1,0 +1,40 @@
+.mainDivs {
+    width: 400px;
+    background-color: white;
+    height: 550px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.imageSection {
+    width: 300px;
+    height: 300px;
+    margin-top: 10px;
+    object-fit: contain;
+}
+
+.contentSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 250px;
+  margin-top: 20px;
+}
+
+.nameSection {
+  color: rgb(2, 96, 150);
+  font-weight: bolder;
+}
+
+.priceSection {
+  font-weight: bolder;
+}
+
+.descriptionSection {
+    color: rgb(46, 45, 45);
+}
