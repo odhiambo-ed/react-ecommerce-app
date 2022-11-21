@@ -1,0 +1,52 @@
+.mainDivss {
+    width: 400px;
+    background-color: white;
+    height: 550px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.productImage {
+    width: 300px;
+    height: 300px;
+    margin-top: 10px;
+    object-fit: contain;
+}
+
+.nameDivs {
+    color: rgb(2, 96, 150);
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.priceDiv {
+    font-weight: bolder;
+}
+
+.componentsDiv {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addButton, .favoritesButton {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.contentSection {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 250px;
+    margin-top: 20px;
+}
