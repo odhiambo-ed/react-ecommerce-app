@@ -1,10 +1,8 @@
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../styles/Login.css';
+import Footer from './Footer';
 
 
 import LandingCart from './LandingCart';
@@ -37,6 +35,7 @@ const Login = () => {
           ))}
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };
