@@ -5,6 +5,8 @@ import Home from './components/Home';
 
 import AuthRoute from './routes/AuthRoute';
 import ProtectedRoute from './routes/ProtectedRoute';
+import './App.css';
+import './responsive.css';
 
 const App = () => (
   <BrowserRouter>

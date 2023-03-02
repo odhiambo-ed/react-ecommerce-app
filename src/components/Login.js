@@ -10,6 +10,8 @@ import { signIn } from '../features/slices/authSlice';
 
 import LandingCart from './LandingCart';
 
+import Hero from './Hero';
+
 import data from '../data/shopping';
 
 const Login = () => {
@@ -33,6 +35,7 @@ const Login = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <Hero />
       <Container
         style={{
           marginTop: 100,
