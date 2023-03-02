@@ -62,7 +62,7 @@ function Navigation({ setCurrentTab }) {
       });
   }, []);
   return (
-    <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
         <Navbar.Brand>E-Commerce</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -96,7 +96,7 @@ function Navigation({ setCurrentTab }) {
                 setCurrentTab('Cart');
               }}
             >
-              <img src={Cart} alt="cart" className="cartLogo" />
+              <i className="fas fa-shopping-bag"></i>
             </Nav.Link>
             <p className="lengthIndicators">{data.length}</p>
           </Nav>
